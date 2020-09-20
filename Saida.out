@@ -1,0 +1,257 @@
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+- Para cadastrar o time preenchal as seguintes caracteristicas:
+
+Nome: Quantidade de Jogadores: Divisao[A-D]: Quantidade de Titulos: Tecnico: Valor Estimado: -------------------------------------------------
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+- Para cadastrar o time preenchal as seguintes caracteristicas:
+
+Nome: Quantidade de Jogadores: Divisao[A-D]: Quantidade de Titulos: Tecnico: Valor Estimado: -------------------------------------------------
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+- Para cadastrar o time preenchal as seguintes caracteristicas:
+
+Nome: Quantidade de Jogadores: Divisao[A-D]: Quantidade de Titulos: Tecnico: Valor Estimado: -------------------------------------------------
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+- Para cadastrar o time preenchal as seguintes caracteristicas:
+
+Nome: Quantidade de Jogadores: Divisao[A-D]: Quantidade de Titulos: Tecnico: Valor Estimado: -------------------------------------------------
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+- Para cadastrar o time preenchal as seguintes caracteristicas:
+
+Nome: Quantidade de Jogadores: Divisao[A-D]: Quantidade de Titulos: Tecnico: Valor Estimado: -------------------------------------------------
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+--- Quadro de Times ---
+
+1 - Nome: Time1 | Qtd Jogadores: 11 | Divisao: A | Qtd de Titulos: 2 | Tecnico: Vilson | Hotel Hospedado: Sem Local | Valor estimado: 2000
+2 - Nome: Time2 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+3 - Nome: Time3 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+4 - Nome: Time4 | Qtd Jogadores: 12 | Divisao: A | Qtd de Titulos: 4 | Tecnico: Vilsonn | Hotel Hospedado: Sem Local | Valor estimado: 20000
+5 - Nome: Time5 | Qtd Jogadores: 12 | Divisao: A | Qtd de Titulos: 4 | Tecnico: Vilsonn | Hotel Hospedado: Sem Local | Valor estimado: 20000
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+--- Quadro de Times ---
+
+1 - Nome: Time1 | Qtd Jogadores: 11 | Divisao: A | Qtd de Titulos: 2 | Tecnico: Vilson | Hotel Hospedado: Sem Local | Valor estimado: 2000
+2 - Nome: Time2 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+3 - Nome: Time3 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+4 - Nome: Time4 | Qtd Jogadores: 12 | Divisao: A | Qtd de Titulos: 4 | Tecnico: Vilsonn | Hotel Hospedado: Sem Local | Valor estimado: 20000
+5 - Nome: Time5 | Qtd Jogadores: 12 | Divisao: A | Qtd de Titulos: 4 | Tecnico: Vilsonn | Hotel Hospedado: Sem Local | Valor estimado: 20000
+
+Digite o numero referente ao time que deseja remover: - Time Removido com sucesso!!
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+--- Quadro de Times ---
+
+1 - Nome: Time1 | Qtd Jogadores: 11 | Divisao: A | Qtd de Titulos: 2 | Tecnico: Vilson | Hotel Hospedado: Sem Local | Valor estimado: 2000
+2 - Nome: Time2 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+3 - Nome: Time3 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+4 - Nome: Time4 | Qtd Jogadores: 12 | Divisao: A | Qtd de Titulos: 4 | Tecnico: Vilsonn | Hotel Hospedado: Sem Local | Valor estimado: 20000
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+--- Quadro de Times ---
+
+1 - Nome: Time1 | Qtd Jogadores: 11 | Divisao: A | Qtd de Titulos: 2 | Tecnico: Vilson | Hotel Hospedado: Sem Local | Valor estimado: 2000
+2 - Nome: Time2 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+3 - Nome: Time3 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+4 - Nome: Time4 | Qtd Jogadores: 12 | Divisao: A | Qtd de Titulos: 4 | Tecnico: Vilsonn | Hotel Hospedado: Sem Local | Valor estimado: 20000
+
+Digite o numero referente ao time que deseja remover: - Time Removido com sucesso!!
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+--- Quadro de Times ---
+
+1 - Nome: Time1 | Qtd Jogadores: 11 | Divisao: A | Qtd de Titulos: 2 | Tecnico: Vilson | Hotel Hospedado: Sem Local | Valor estimado: 2000
+2 - Nome: Time3 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+3 - Nome: Time4 | Qtd Jogadores: 12 | Divisao: A | Qtd de Titulos: 4 | Tecnico: Vilsonn | Hotel Hospedado: Sem Local | Valor estimado: 20000
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+--- Quadro de Times ---
+
+1 - Nome: Time1 | Qtd Jogadores: 11 | Divisao: A | Qtd de Titulos: 2 | Tecnico: Vilson | Hotel Hospedado: Sem Local | Valor estimado: 2000
+2 - Nome: Time3 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+3 - Nome: Time4 | Qtd Jogadores: 12 | Divisao: A | Qtd de Titulos: 4 | Tecnico: Vilsonn | Hotel Hospedado: Sem Local | Valor estimado: 20000
+
+Digite o numero referente ao time que deseja remover: - Time Removido com sucesso!!
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+--- Quadro de Times ---
+
+1 - Nome: Time3 | Qtd Jogadores: 111 | Divisao: B | Qtd de Titulos: 2 | Tecnico: Vilsoon | Hotel Hospedado: Sem Local | Valor estimado: 20012
+2 - Nome: Time4 | Qtd Jogadores: 12 | Divisao: A | Qtd de Titulos: 4 | Tecnico: Vilsonn | Hotel Hospedado: Sem Local | Valor estimado: 20000
+
+Gerenciador
+
+1 - Cadastrar Hotel
+2 - Listar todos os hoteis
+3 - Listar Hoteis por estrelas
+4 - Cadastrar Time de Futebol
+5 - Listar todos os Times
+6 - Listar Times por divisao
+7 - Reservar Time em Hotel
+8 - Remove Time
+9 - Altera Hotel
+0 - Sair
+
+Digite a opcao desejada: 
+Saiu
