@@ -3,383 +3,490 @@
 #include "Constantes.h"
 #include "Estruturas.h"
 #include <iostream>
-using namespace std;
 
-REG_HOTEL aHotel[QTD_MAX_HOTEIS] = {0};
-long lQtdHoteisCriados           = 0;
+REG_MATERIA aMateria[QTD_MAX_MATERIAS] = { 0 };
+long lQtdMateriasCriadas = 0;
 
-REG_TIME aTime[QTD_MAX_TIMES]    = {0};
-long lQtdTimesCriados            = 0;
+REG_FORMACAO aFormacao[QTD_MAX_FORMACOES] = { 0 };
+long lQtdFormacoesCriadas = 0;
+
+REG_PROFESSOR aProfessor[QTD_MAX_PROFESSORES] = { 0 };
+long lQtdProfessoresCriados = 0;
 
 void MostraOpcoes()
 {
     std::cout << std::endl;
-    std::cout << "Gerenciador"                    << std::endl  << std::endl;
-    std::cout << "1 - Cadastrar Hotel"            << std::endl;
-    std::cout << "2 - Listar todos os hoteis"     << std::endl;
-    std::cout << "3 - Listar Hoteis por estrelas" << std::endl;
-    std::cout << "4 - Cadastrar Time de Futebol"  << std::endl;
-    std::cout << "5 - Listar todos os Times"      << std::endl;
-    std::cout << "6 - Listar Times por divisao"   << std::endl;
-    std::cout << "7 - Reservar Time em Hotel"     << std::endl;
-    std::cout << "8 - Remove Time"                << std::endl;
-    std::cout << "9 - Altera Hotel"               << std::endl;
-    std::cout << "0 - Sair"                       << std::endl  << std::endl;
+    std::cout << "Gerenciador Escola" << std::endl << std::endl;
+    std::cout << "1 - Cadastrar Materia" << std::endl;
+    std::cout << "2 - Listar todas as materias" << std::endl;
+    std::cout << "3 - Cadastrar Formacao" << std::endl;
+    std::cout << "4 - Listar todas as formacoes" << std::endl;
+    std::cout << "5 - Cadastrar Professor" << std::endl;
+    std::cout << "6 - Listar todos os Professor" << std::endl;
+    std::cout << "7 - Alterar Avaliacao da Formacao" << std::endl;
+    std::cout << "8 - Listar Materias sem Professor" << std::endl;
+    std::cout << "9 - Listar Professores Concursados" << std::endl;
+    std::cout << "0 - Sair" << std::endl << std::endl;
     std::cout << "Digite a opcao desejada: ";
 }
 
-void CadastraHotel()
+void CadastraMateria()
 {
-    std::cout << std::endl ;
+    std::cout << std::endl;
 
-    if (lQtdHoteisCriados >= QTD_MAX_HOTEIS)
+    if (lQtdMateriasCriadas >= QTD_MAX_MATERIAS)
     {
-        std::cout << "Nao e mais possivel criar hoteis, quantidade maxima ja atingida!!" << std::endl ;
+        std::cout << "Nao e mais possivel criar Materias, quantidade maxima ja atingida!!" << std::endl;
         return;
     }
 
-    REG_HOTEL& regHotel = aHotel[lQtdHoteisCriados];
+    REG_MATERIA& regMateria = aMateria[lQtdMateriasCriadas];
 
-    std::cout << "- Para cadastrar o hotel preenchal as seguintes caracteristicas:" << std::endl  << std::endl ;
+    std::cout << "- Para cadastrar o Material preenchal as seguintes informacoes:" << std::endl << std::endl;
 
     std::cout << "Nome: ";
-    std::cin  >> regHotel.sNome;
-    std::cout << "Cidade: ";
-    std::cin  >> regHotel.sCidade;
-    std::cout << "Numero: ";
-    std::cin  >> regHotel.lNumero;
-    std::cout << "Telefone: ";
-    std::cin  >> regHotel.lTelefone;
-    std::cout << "Quantidade de Estrelas[1-5]: ";
+    std::cin >> regMateria.sNome;
+    std::cout << "Quantidade de Capitulos: ";
+    std::cin >> regMateria.lCapitulos;
+    std::cout << "Quantidade de horas: ";
+    std::cin >> regMateria.lHoras;
 
-    long lQtdEstrelas = 0;
-    std::cin  >> lQtdEstrelas;
+    ++lQtdMateriasCriadas;
 
-    switch (lQtdEstrelas)
-    {
-        case EEstrela::eUma   : regHotel.eEstrela = EEstrela::eUma   ; break;
-        case EEstrela::eDois  : regHotel.eEstrela = EEstrela::eDois  ; break;
-        case EEstrela::eTres  : regHotel.eEstrela = EEstrela::eTres  ; break;
-        case EEstrela::eQuatro: regHotel.eEstrela = EEstrela::eQuatro; break;
-        case EEstrela::eCinco : regHotel.eEstrela = EEstrela::eCinco ; break;
-    }
-
-    std::cout << "No hotel ha piscina? Digite sim ou nao!" << std::endl ;
-
-    std::string sTemPiscina;
-    std::cin >> sTemPiscina;
-
-    aHotel[lQtdHoteisCriados].bPiscina = ((sTemPiscina == "1") || (sTemPiscina == "sim") || (sTemPiscina == "SIM"));
-
-    ++lQtdHoteisCriados;
-
-    std::cout << "-------------------------------------------------" << std::endl ;
+    std::cout << "-------------------------------------------------" << std::endl;
 }
 
-void ListaHoteis()
+void ListaMaterias()
 {
-    std::cout << std::endl ;
-    std::cout << "--- Quadro de Hoteis ---" << std::endl ;
-    std::cout << std::endl ;
+    std::cout << std::endl;
+    std::cout << "--- Quadro de Materias ---" << std::endl;
+    std::cout << std::endl;
 
-    //valida se a quant de times é zero
-
-    for (long lIndex = 0; lIndex < lQtdHoteisCriados; ++lIndex)
+    if (lQtdMateriasCriadas == 0)
     {
-        const REG_HOTEL& regHotel = aHotel[lIndex];
+        std::cout << "Nao ha Materias!!" << std::endl << std::endl;
+        return;
+    }
 
-        std::cout << lIndex + 1         << " - ";
-        std::cout << "Nome: "           << regHotel.sNome                      << " | ";
-        std::cout << "Cidade: "         << regHotel.sCidade                    << " | ";
-        std::cout << "Numero: "         << regHotel.lNumero                    << " | ";
-        std::cout << "Telefone: "       << regHotel.lTelefone                  << " | ";
-        std::cout << "Tem piscina: "    << (regHotel.bPiscina ? "Sim" : "Nao") << " | ";
-        std::cout << "Nr de Estrelas: " << regHotel.eEstrela                   << std::endl ;
+    for (long lIndex = 0; lIndex < lQtdMateriasCriadas; ++lIndex)
+    {
+        const REG_MATERIA& regMateria = aMateria[lIndex];
+
+        std::cout << lIndex + 1 << " - ";
+        std::cout << "Nome: " << regMateria.sNome << " | ";
+        std::cout << "Capitulos: " << regMateria.lCapitulos << " | ";
+        std::cout << "Horas: " << regMateria.lHoras << std::endl;
     }
 }
 
-void ListaHoteisPorEstrela()
+void CadastraFormacao()
 {
-    std::cout << std::endl ;
-    std::cout << "Qual a quantidade de estrelas que deseja filtrar a lista de hoteis? " << std::endl ;
+    std::cout << std::endl;
 
-    long lQtdEstrelas = 0;
-    std::cin >> lQtdEstrelas;
-    std::cout << std::endl ;
-
-    //valida se qtd d estrelas existe
-
-    long lContadorHoteis = 0;
-
-    for (long lIndex = 0; lIndex < lQtdHoteisCriados; ++lIndex)
+    if (lQtdFormacoesCriadas >= QTD_MAX_FORMACOES)
     {
-        const REG_HOTEL& regHotel = aHotel[lIndex];
+        std::cout << "Nao e mais possivel criar Formacoes, quantidade maxima ja atingida!!" << std::endl;
+        return;
+    }
 
-        if (regHotel.eEstrela != lQtdEstrelas)
+    REG_FORMACAO& regFormacao = aFormacao[lQtdFormacoesCriadas];
+
+    std::cout << "- Para cadastrar a Formacao preenchal as seguintes informacoes:" << std::endl << std::endl;
+
+    std::cout << "Descricao: ";
+    std::cin >> regFormacao.sDescritivo;
+    std::cout << "Avaliacao[A-F]: ";
+    char cRating = 0;
+    std::cin >> cRating;
+
+    switch (cRating)
+    {
+    case ERating::eA: regFormacao.cRating = ERating::eA; break;
+    case ERating::eB: regFormacao.cRating = ERating::eB; break;
+    case ERating::eC: regFormacao.cRating = ERating::eC; break;
+    case ERating::eD: regFormacao.cRating = ERating::eD; break;
+    case ERating::eF: regFormacao.cRating = ERating::eF; break;
+    case ERating::eE: regFormacao.cRating = ERating::eE; break;
+    default:
+    {
+        std::cout << "Opcao de avaliacao invalida, caractere digitado nao corresponde as opcoes!!" << std::endl;
+        return;
+    }
+    }
+
+    ++lQtdFormacoesCriadas;
+
+    std::cout << "-------------------------------------------------" << std::endl;
+}
+
+void ListaFormacoes()
+{
+    std::cout << std::endl;
+    std::cout << "--- Quadro de Formacoes ---" << std::endl;
+    std::cout << std::endl;
+
+    if (lQtdFormacoesCriadas == 0)
+    {
+        std::cout << "Nao ha Formacoes!!" << std::endl << std::endl;
+        return;
+    }
+
+    for (long lIndex = 0; lIndex < lQtdFormacoesCriadas; ++lIndex)
+    {
+        const REG_FORMACAO& regFormacao = aFormacao[lIndex];
+
+        std::cout << lIndex + 1 << " - ";
+        std::cout << "Descricao: " << regFormacao.sDescritivo << " | ";
+        std::cout << "Rating: " << regFormacao.cRating << std::endl;
+    }
+}
+
+void CadastraProfessor()
+{
+    std::cout << std::endl;
+
+    if (lQtdProfessoresCriados >= QTD_MAX_PROFESSORES)
+    {
+        std::cout << "Nao e mais possivel criar Professores, quantidade maxima ja atingida!!" << std::endl;
+        return;
+    }
+
+    if (lQtdMateriasCriadas == 0)
+    {
+        std::cout << "Nao pode-se criar Professor pois, nao ha Materias!!" << std::endl << std::endl;
+        return;
+    }
+
+    if (lQtdFormacoesCriadas == 0)
+    {
+        std::cout << "Nao pode-se criar Professor pois, nao ha Formacoes!!" << std::endl << std::endl;
+        return;
+    }
+
+    REG_PROFESSOR& regProfessor = aProfessor[lQtdProfessoresCriados];
+
+    std::cout << "- Para cadastrar a Formacao preenchal as seguintes informacoes:" << std::endl << std::endl;
+
+    std::cout << "Nome: ";
+    std::cin >> regProfessor.sNome;
+    std::cout << "Salario: ";
+    std::cin >> regProfessor.dSalario;
+    std::cout << "Concursado: ";
+
+    std::string sConcursado;
+    std::cin >> sConcursado;
+
+    regProfessor.bConcursado = ((sConcursado == "1") || (sConcursado == "sim") || (sConcursado == "SIM"));
+
+    ListaMaterias();
+
+    std::cout << std::endl;
+    std::cout << "Digite o numero referente a Materia desejada:" << std::endl;
+
+    long lMateriaEscolhida = 0;
+    std::cin >> lMateriaEscolhida;
+
+    if ((lMateriaEscolhida > lQtdMateriasCriadas) || (lMateriaEscolhida <= 0))
+    {
+        std::cout << "Materia nao esta disponivel!!" << std::endl;
+        return;
+    }
+
+    std::cout << std::endl;
+    std::cout << "- Agora, após escolher a Materia, escolha a Formacao:" << std::endl << std::endl;
+
+    ListaFormacoes();
+
+    std::cout << std::endl;
+    std::cout << "Digite o numero referente a Formacao desejada:" << std::endl;
+
+    long lFormacaoEscolhido = 0;
+    std::cin >> lFormacaoEscolhido;
+
+    if ((lFormacaoEscolhido > lQtdFormacoesCriadas) || (lFormacaoEscolhido <= 0))
+    {
+        std::cout << "Formacao nao esta disponivel!!" << std::endl;
+        return;
+    }
+
+    regProfessor.lIndexMateria = lMateriaEscolhida - 1;
+    regProfessor.lIndexFormacao = lFormacaoEscolhido - 1;
+
+    ++lQtdProfessoresCriados;
+
+    std::cout << "-------------------------------------------------" << std::endl;
+}
+
+void ListaProfessor()
+{
+    std::cout << std::endl;
+    std::cout << "--- Quadro de Professores ---" << std::endl;
+    std::cout << std::endl;
+
+    if (lQtdProfessoresCriados == 0)
+    {
+        std::cout << "Nao ha Professores!!" << std::endl << std::endl;
+        return;
+    }
+
+    for (long lIndex = 0; lIndex < lQtdProfessoresCriados; ++lIndex)
+    {
+        const REG_PROFESSOR& regProfessor = aProfessor[lIndex];
+
+        std::cout << lIndex + 1 << " - ";
+        std::cout << "Nome: " << regProfessor.sNome << " | ";
+        std::cout << "Salario: " << regProfessor.dSalario << " | ";
+        std::cout << "Concursado: " << (regProfessor.bConcursado ? "Sim" : "Nao") << " | ";
+        std::cout << "Materia: " << aMateria[regProfessor.lIndexMateria].sNome << " | ";
+        std::cout << "Formacao: " << aFormacao[regProfessor.lIndexFormacao].sDescritivo << std::endl;
+    }
+}
+
+void AlteraRating()
+{
+    if (lQtdFormacoesCriadas <= 0)
+    {
+        std::cout << "Nao ha Formacoes!!" << std::endl;
+        return;
+    }
+
+    ListaFormacoes();
+
+    std::cout << std::endl;
+    std::cout << "Digite o numero referente a Formacao que deseja alterar: ";
+
+    long lFormacaoEscolhida = 0;
+    std::cin >> lFormacaoEscolhida;
+
+    if ((lFormacaoEscolhida > lQtdFormacoesCriadas) || (lFormacaoEscolhida <= 0))
+    {
+        std::cout << "Essa Formacao nao esta disponivel!!" << std::endl;
+        return;
+    }
+
+    REG_FORMACAO& regFormacao = aFormacao[lFormacaoEscolhida - 1];
+
+    std::cout << " - Digite a Avaliacao[A-F] o qual deseja substituir a atual: ";
+    char cRating = 0;
+    std::cin >> cRating;
+
+    switch (cRating)
+    {
+    case ERating::eA: regFormacao.cRating = ERating::eA; break;
+    case ERating::eB: regFormacao.cRating = ERating::eB; break;
+    case ERating::eC: regFormacao.cRating = ERating::eC; break;
+    case ERating::eD: regFormacao.cRating = ERating::eD; break;
+    case ERating::eF: regFormacao.cRating = ERating::eF; break;
+    case ERating::eE: regFormacao.cRating = ERating::eE; break;
+    default:
+    {
+        std::cout << "Opcao de avaliacao invalida, caractere digitado nao corresponde as opcoes!!" << std::endl;
+        return;
+    }
+    }
+
+    std::cout << "-------------------------------------------------" << std::endl;
+}
+
+bool VerificaSeMateriaTemProf(const long& lIndexMateria)
+{
+    for (long lIndex = 0; lIndex < lQtdProfessoresCriados; ++lIndex)
+    {
+        const REG_PROFESSOR& regProfessor = aProfessor[lIndex];
+
+        if (regProfessor.lIndexMateria == lIndexMateria)
+            return true;
+    }
+
+    return false;
+}
+
+void ListaMateriasSemProf()
+{
+    std::cout << std::endl;
+    std::cout << "--- Quadro de Materias sem Professor ---" << std::endl;
+    std::cout << std::endl;
+
+    if (lQtdMateriasCriadas == 0)
+    {
+        std::cout << "Nao ha Materias!!" << std::endl << std::endl;
+        return;
+    }
+
+    long lContadorMaterias = 0;
+
+    for (long lIndex = 0; lIndex < lQtdMateriasCriadas; ++lIndex)
+    {
+        const REG_MATERIA& regMateria = aMateria[lIndex];
+
+        if (VerificaSeMateriaTemProf(lIndex))
             continue;
 
         std::cout << lIndex + 1 << " - ";
-        std::cout << "Nome: "           << regHotel.sNome                      << " | ";
-        std::cout << "Cidade: "         << regHotel.sCidade                    << " | ";
-        std::cout << "Numero: "         << regHotel.lNumero                    << " | ";
-        std::cout << "Telefone: "       << regHotel.lTelefone                  << " | ";
-        std::cout << "Tem piscina: "    << (regHotel.bPiscina ? "Sim" : "Nao") << " | ";
-        std::cout << "Nr de Estrelas: " << regHotel.eEstrela                   << std::endl;
+        std::cout << "Nome: " << regMateria.sNome << " | ";
+        std::cout << "Capitulos: " << regMateria.lCapitulos << " | ";
+        std::cout << "Horas: " << regMateria.lHoras << std::endl;
 
-        ++lContadorHoteis;
+        ++lContadorMaterias;
     }
 
-    if (lContadorHoteis == 0)
-        std::cout << "Nao ha hoteis com essa quantidade de estrelas!!" << std::endl  << std::endl ;
+    if (lContadorMaterias == 0)
+        std::cout << "Nao ha Materias sem Professor!!" << std::endl << std::endl;
 }
 
-
-void CadastraTime()
+void ListaProfsConcursados()
 {
-    std::cout << std::endl ;
+    std::cout << std::endl;
+    std::cout << "--- Quadro de Professores Concursados---" << std::endl;
+    std::cout << std::endl;
 
-    if (lQtdTimesCriados >= QTD_MAX_TIMES)
+    if (lQtdProfessoresCriados == 0)
     {
-        std::cout << "Nao e mais possivel criar times, quantidade maxima ja atingida!!" << std::endl ;
+        std::cout << "Nao ha Professores!!" << std::endl << std::endl;
         return;
     }
 
-    REG_TIME& regTime = aTime[lQtdTimesCriados];
-
-    std::cout << "- Para cadastrar o time preenchal as seguintes caracteristicas:" << std::endl  << std::endl ;
-
-    std::cout << "Nome: ";
-    std::cin  >> regTime.sNome;
-    std::cout << "Quantidade de Jogadores: ";
-    std::cin  >> regTime.lQtdJogadores;
-    std::cout << "Divisao[A-D]: ";
-
-    char cDivisao = 0;
-    std::cin  >> cDivisao;
-
-    switch (cDivisao)
+    for (long lIndex = 0; lIndex < lQtdProfessoresCriados; ++lIndex)
     {
-        case EDivisao::eAm:
-        case EDivisao::eA: regTime.eDivisao = EDivisao::eA; break;
+        const REG_PROFESSOR& regProfessor = aProfessor[lIndex];
 
-        case EDivisao::eBm:
-        case EDivisao::eB: regTime.eDivisao = EDivisao::eB; break;
-
-        case EDivisao::eCm:
-        case EDivisao::eC: regTime.eDivisao = EDivisao::eC; break;
-
-        case EDivisao::eDm:
-        case EDivisao::eD: regTime.eDivisao = EDivisao::eD; break;
-    }
-
-    std::cout << "Quantidade de Titulos: ";
-    std::cin  >> regTime.lTitulos;
-    std::cout << "Tecnico: ";
-    std::cin  >> regTime.sTecnico;
-    std::cout << "Valor Estimado: ";
-    std::cin  >> regTime.dValorEstimado;
-
-    regTime.lIdxHotel = 0;
-
-    ++lQtdTimesCriados;
-
-    std::cout << "-------------------------------------------------" << std::endl ;
-}
-
-std::string GetDescricaoTimeDivisao(EDivisao eDivisao)
-{
-    switch (eDivisao)
-    {
-        case EDivisao::eAm:
-        case EDivisao::eA: return "A";
-
-        case EDivisao::eBm:
-        case EDivisao::eB: return "B";
-
-        case EDivisao::eCm:
-        case EDivisao::eC: return "C";
-
-        case EDivisao::eDm:
-        case EDivisao::eD: return "D";
-    }
-    return "";
-}
-
-std::string GetNomeHotelPorIdx(const long& lIndexHotel)
-{
-    if (lIndexHotel == 0)
-        return "Sem Local";
-
-    const REG_HOTEL& regHotel = aHotel[lIndexHotel-1];
-    return regHotel.sNome;
-}
-
-void ListaTimes()
-{
-    std::cout << std::endl ;
-    std::cout << "--- Quadro de Times ---" << std::endl ;
-    std::cout << std::endl ;
-
-    //valida se a quant de times é zero
-
-    for (long lIndex = 0; lIndex < lQtdTimesCriados; ++lIndex)
-    {
-        const REG_TIME& regTime = aTime[lIndex];
-
-        std::cout << lIndex + 1          << " - ";
-        std::cout << "Nome: "            << regTime.sNome                             << " | ";
-        std::cout << "Qtd Jogadores: "   << regTime.lQtdJogadores                     << " | ";
-        std::cout << "Divisao: "         << GetDescricaoTimeDivisao(regTime.eDivisao) << " | ";
-        std::cout << "Qtd de Titulos: "  << regTime.lTitulos                          << " | ";
-        std::cout << "Tecnico: "         << regTime.sTecnico                          << " | ";
-        std::cout << "Hotel Hospedado: " << GetNomeHotelPorIdx(regTime.lIdxHotel)     << " | ";
-        std::cout << "Valor estimado: "  << regTime.dValorEstimado                    << std::endl  ;
-    }
-}
-
-void ListaTimesPorDivisao()
-{
-    std::cout << std::endl  ;
-    std::cout << "Qual a divisao que deseja filtrar a lista de times? " << std::endl ;
-
-    char cDivisao = 0;
-    std::cin >> cDivisao;
-    std::cout << std::endl ;
-
-    long lContadorTimes = 0;
-
-    //valida se divisao existe
-
-    for (long lIndex = 0; lIndex < lQtdHoteisCriados; ++lIndex)
-    {
-        const REG_TIME& regTime = aTime[lIndex];
-
-        if (regTime.eDivisao != cDivisao)
+        if (!regProfessor.bConcursado)
             continue;
-        
-            std::cout << lIndex + 1         << " - ";
-            std::cout << "Nome: "           << regTime.sNome                             << " | ";
-            std::cout << "Qtd Jogadores: "  << regTime.lQtdJogadores                     << " | ";
-            std::cout << "Divisao: "        << GetDescricaoTimeDivisao(regTime.eDivisao) << " | ";
-            std::cout << "Qtd de Titulos: " << regTime.lTitulos                          << " | ";
-            std::cout << "Tecnico: "        << regTime.sTecnico                          << " | ";
-            std::cout << "Hospedado: "      << GetNomeHotelPorIdx(regTime.lIdxHotel)     << " | ";
-            std::cout << "Valor estimado: " << regTime.dValorEstimado                    << std::endl ;
 
-            ++lContadorTimes;
+        std::cout << lIndex + 1 << " - ";
+        std::cout << "Nome: " << regProfessor.sNome << " | ";
+        std::cout << "Salario: " << regProfessor.dSalario << " | ";
+        std::cout << "Concursado: " << (regProfessor.bConcursado ? "Sim" : "Nao") << " | ";
+        std::cout << "Materia: " << aMateria[regProfessor.lIndexMateria].sNome << " | ";
+        std::cout << "Formacao: " << aFormacao[regProfessor.lIndexFormacao].sDescritivo << std::endl;
     }
-
-    if (lContadorTimes == 0)
-        std::cout << "Nao ha times nessa Divisao!!" << std::endl  << std::endl ;
 }
 
-void ReservaTimeNoHotel()
+void ListaSeTemProfComEsseRating(const char& cRatingEscolhido)
 {
-    if (lQtdHoteisCriados == 0)
-    {
-        std::cout << "Hotel deve ser cadastrado!!" << std::endl << std::endl;
-        return;
-    }
-
-    if (lQtdTimesCriados == 0)
-    {
-        std::cout << "Time deve ser cadastrado!!" << std::endl << std::endl;
-        return;
-    }
-
-    std::cout << std::endl ;
-    std::cout << "- Para Reservar o time  em um hotel escolha um dos times a seguir:" << std::endl  << std::endl ;
-
-    ListaTimes();
-
-    std::cout << std::endl ;
-    std::cout << "Digite o numero referente ao time desejado:" << std::endl ;
-
-    long lTimeEscolhido = 0;
-    std::cin >> lTimeEscolhido;
-
-    if ((lTimeEscolhido > lQtdHoteisCriados) || (lTimeEscolhido  <= 0))
-    {
-        std::cout << "Time nao esta disponivel!!" << std::endl;
-        return;
-    }
-
-    REG_TIME& regTime = aTime[lTimeEscolhido-1];
-
-    std::cout << std::endl ;
-    std::cout << "- Agora, após escolher o time, escolha o hotel o qual esse time ficará:" << std::endl  << std::endl ;
-
-    ListaHoteis();
-
-    std::cout << std::endl ;
-    std::cout << "Digite o numero referente ao hotel desejado:" << std::endl ;
-
-    long lHotelEscolhido = 0;
-    std::cin >> lHotelEscolhido;
-
-    if ((lHotelEscolhido > lQtdHoteisCriados) || (lHotelEscolhido  <= 0))
-    {
-        std::cout << "Hotel nao esta disponivel!!" << std::endl ;
-        return;
-    }
-
-    regTime.lIdxHotel = lHotelEscolhido;
-    std::cout << "- Time reservado no hotel com sucesso!!" << std::endl  << std::endl ;
-}
-
-void RemoveTime()
-{
-    if (lQtdTimesCriados <= 0)
-    {
-        std::cout << "Nao ha Times!!" << std::endl;
-        return;
-    }
-
-    ListaTimes();
+    REG_MATERIA aMateriasRelacionadas[QTD_MAX_MATERIAS] = { 0 };
+    long lQtdMateriasRelacionadas = 0;
+    long lTemIgual = 0;
 
     std::cout << std::endl;
-    std::cout << "Digite o numero referente ao time que deseja remover: ";
 
-    long lTimeEscolhido = 0;
-    std::cin >> lTimeEscolhido;
-
-    if ((lTimeEscolhido > lQtdTimesCriados) || (lTimeEscolhido  <= 0))
+    for (long lIndex = 0; lIndex < lQtdProfessoresCriados; ++lIndex)
     {
-        std::cout << "Time nao esta disponivel!!" << std::endl;
-        return;
+        const REG_PROFESSOR& regProfessor = aProfessor[lIndex];
+
+        if (aFormacao[regProfessor.lIndexFormacao].cRating != cRatingEscolhido)
+            continue;
+
+        for (long lIdxMateriasRelacionadas = 0; lIdxMateriasRelacionadas < lQtdMateriasRelacionadas; ++lIdxMateriasRelacionadas)
+        {
+            if (aMateriasRelacionadas[lIdxMateriasRelacionadas].sNome == aMateria[regProfessor.lIndexMateria].sNome)
+                ++lTemIgual;
+        }
+
+        if (lTemIgual != 0)
+            continue;
+
+        aMateriasRelacionadas[lQtdMateriasRelacionadas].sNome = aMateria[regProfessor.lIndexMateria].sNome;
+        ++lQtdMateriasRelacionadas;
+
     }
 
-    for (long lIdx = lTimeEscolhido; lIdx < lQtdTimesCriados; ++lIdx)
-        aTime[lIdx - 1] = aTime[lIdx];
-
-    --lQtdTimesCriados;
-
-    std::cout << "- Time Removido com sucesso!!" << std::endl;
+    if (lQtdMateriasRelacionadas == 0)
+        std::cout << "Nao ha professores com essa avaliacao na formacao!!" << std::endl;
+    else
+    {
+        for (long lIndex = 0; lIndex < lQtdMateriasRelacionadas; ++lIndex)
+            std::cout << "- Materia: " << aMateriasRelacionadas[lIndex].sNome << std::endl;
+    }
 }
 
-void AlteraTemPiscinaHotel()
+void ListaMateriasPorRating()
 {
-    if (lQtdHoteisCriados <= 0)
+    if (lQtdFormacoesCriadas <= 0)
     {
-        std::cout << "Nao ha Hoteis!!" << std::endl;
+        std::cout << "Nao ha Formacoes!!" << std::endl;
         return;
     }
 
-    ListaHoteis();
+    if (lQtdProfessoresCriados == 0)
+    {
+        std::cout << "Nao ha Professores!!" << std::endl << std::endl;
+        return;
+    }
+
+    std::cout << "Digite a Avaliacao[A-F] o qual deseja listar as materias relacionadas: ";
+    char cRating = 0;
+    std::cin >> cRating;
+
+    switch (cRating)
+    {
+    case ERating::eA:
+    case ERating::eB:
+    case ERating::eC:
+    case ERating::eD:
+    case ERating::eF:
+    case ERating::eE: ListaSeTemProfComEsseRating(cRating); break;
+    default:
+    {
+        std::cout << "Opcao de avaliacao invalida, caractere digitado nao corresponde as opcoes!!" << std::endl;
+        return;
+    }
+    }
+}
+
+void ListaSalarioHoraDoProf()
+{
+    std::cout << std::endl;
+    std::cout << "--- Quadro de Professores Salario/Hora ---" << std::endl;
+    std::cout << std::endl;
+
+    if (lQtdProfessoresCriados == 0)
+    {
+        std::cout << "Nao ha Professores!!" << std::endl << std::endl;
+        return;
+    }
+
+    for (long lIndex = 0; lIndex < lQtdProfessoresCriados; ++lIndex)
+    {
+        const REG_PROFESSOR& regProfessor = aProfessor[lIndex];
+
+        std::cout << lIndex + 1 << " - ";
+        std::cout << "Nome: " << regProfessor.sNome << " | ";
+        std::cout << "Salario: " << regProfessor.dSalario << " | ";
+        std::cout << "Concursado: " << (regProfessor.bConcursado ? "Sim" : "Nao") << " | ";
+        std::cout << "Materia: " << aMateria[regProfessor.lIndexMateria].sNome << " | ";
+        std::cout << "Qtd Horas: " << aMateria[regProfessor.lIndexMateria].lHoras << " | ";
+        std::cout << "Formacao: " << aFormacao[regProfessor.lIndexFormacao].sDescritivo << " | ";
+        std::cout << "Salario/Hora: " << regProfessor.dSalario / aMateria[regProfessor.lIndexMateria].lHoras << std::endl;
+    }
+}
+
+void RemoverProf()
+{
+    if (lQtdProfessoresCriados <= 0)
+    {
+        std::cout << "Nao ha Professores!!" << std::endl;
+        return;
+    }
+
+    ListaProfessor();
 
     std::cout << std::endl;
-    std::cout << "Digite o numero referente ao hotel que deseja alterar: ";
+    std::cout << "Digite o numero referente ao Professor que deseja remover: ";
 
-    long lHotelEscolhido = 0;
-    std::cin >> lHotelEscolhido;
+    long lProfEscolhido = 0;
+    std::cin >> lProfEscolhido;
 
-    if ((lHotelEscolhido > lQtdHoteisCriados) || (lHotelEscolhido  <= 0))
+    if ((lProfEscolhido > lQtdProfessoresCriados) || (lProfEscolhido <= 0))
     {
-        std::cout << "Hotel nao esta disponivel!!" << std::endl;
+        std::cout << "Professor nao esta disponivel!!" << std::endl;
         return;
     }
 
-    aHotel[lHotelEscolhido - 1].bPiscina = !aHotel[lHotelEscolhido - 1].bPiscina;
+    for (long lIdx = lProfEscolhido; lIdx < lQtdProfessoresCriados; ++lIdx)
+        aProfessor[lIdx - 1] = aProfessor[lIdx];
 
-    std::cout << "- Hotel alterado com sucesso!!" << std::endl;
+    --lQtdProfessoresCriados;
+
+    std::cout << "Professor removido com sucesso!!" << std::endl;
 }
